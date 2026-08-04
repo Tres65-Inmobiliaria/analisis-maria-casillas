@@ -141,7 +141,25 @@
   }
   .p-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--teal-bright); }
 
-  .p-card-cover { width: 100%; height: 210px; object-fit: cover; display: block; background: var(--gray-light); }
+  .p-card-carousel { position: relative; width: 100%; height: 210px; overflow: hidden; background: var(--gray-light); }
+  .p-card-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+  .p-card-cover.active { display: block; }
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 28px; height: 28px;
+    border-radius: 50%; background: rgba(255,255,255,0.88); border: none; color: var(--teal-deep);
+    font-size: 1rem; font-weight: 700; cursor: pointer; z-index: 3; display: flex;
+    align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: background .2s;
+    line-height: 1; padding: 0;
+  }
+  .carousel-btn:hover { background: #fff; }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+  .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 3; }
+  .carousel-dots .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); cursor: pointer;
+    transition: background .2s, transform .2s; border: none; padding: 0;
+  }
+  .carousel-dots .dot.active { background: #fff; transform: scale(1.35); }
 
   .p-badge {
     position: absolute; top: 12px; right: 12px; font-size: 0.6rem; font-weight: 700;
@@ -402,7 +420,24 @@
 
     <!-- CASA SANTIAGO -->
     <div class="p-card reveal">
-      <img class="p-card-cover" src="images/casa-santiago.jpg" alt="Casa Santiago">
+      <div class="p-card-carousel">
+        <img class="p-card-cover active" src="images/casa-santiago.jpg" alt="Casa Santiago 1">
+        <img class="p-card-cover" src="images/santiago-2.jpg" alt="Casa Santiago 2">
+        <img class="p-card-cover" src="images/santiago-3.jpg" alt="Casa Santiago 3">
+        <img class="p-card-cover" src="images/santiago-4.jpg" alt="Casa Santiago 4">
+        <img class="p-card-cover" src="images/santiago-5.jpg" alt="Casa Santiago 5">
+        <img class="p-card-cover" src="images/santiago-6.jpg" alt="Casa Santiago 6">
+        <button class="carousel-btn prev" onclick="carouselNav(this,-1)" aria-label="Foto anterior">‹</button>
+        <button class="carousel-btn next" onclick="carouselNav(this,1)" aria-label="Foto siguiente">›</button>
+        <div class="carousel-dots">
+          <button class="dot active" onclick="carouselDot(this)" aria-label="Foto 1"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 2"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 3"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 4"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 5"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 6"></button>
+        </div>
+      </div>
       <div class="p-badge badge-gold">◆ Mayor terreno (381 m²)</div>
       <div class="p-card-head">
         <div class="p-card-id">EB-WD4928</div>
@@ -445,7 +480,24 @@
 
     <!-- CASA LA PLANCHA -->
     <div class="p-card reveal">
-      <img class="p-card-cover" src="images/casa-la-plancha.jpg" alt="Casa La Plancha">
+      <div class="p-card-carousel">
+        <img class="p-card-cover active" src="images/casa-la-plancha.jpg" alt="Casa La Plancha 1">
+        <img class="p-card-cover" src="images/laplancha-2.jpg" alt="Casa La Plancha 2">
+        <img class="p-card-cover" src="images/laplancha-3.jpg" alt="Casa La Plancha 3">
+        <img class="p-card-cover" src="images/laplancha-4.jpg" alt="Casa La Plancha 4">
+        <img class="p-card-cover" src="images/laplancha-5.jpg" alt="Casa La Plancha 5">
+        <img class="p-card-cover" src="images/laplancha-6.jpg" alt="Casa La Plancha 6">
+        <button class="carousel-btn prev" onclick="carouselNav(this,-1)" aria-label="Foto anterior">‹</button>
+        <button class="carousel-btn next" onclick="carouselNav(this,1)" aria-label="Foto siguiente">›</button>
+        <div class="carousel-dots">
+          <button class="dot active" onclick="carouselDot(this)" aria-label="Foto 1"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 2"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 3"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 4"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 5"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 6"></button>
+        </div>
+      </div>
       <div class="p-badge badge-value">✓ 2 recámaras exactas</div>
       <div class="p-card-head">
         <div class="p-card-id">EB-UV0127</div>
@@ -488,7 +540,24 @@
 
     <!-- CASA TAMARINDO -->
     <div class="p-card reveal">
-      <img class="p-card-cover" src="images/casa-tamarindo.jpg" alt="Casa Tamarindo">
+      <div class="p-card-carousel">
+        <img class="p-card-cover active" src="images/casa-tamarindo.jpg" alt="Casa Tamarindo 1">
+        <img class="p-card-cover" src="images/tamarindo-2.jpg" alt="Casa Tamarindo 2">
+        <img class="p-card-cover" src="images/tamarindo-3.jpg" alt="Casa Tamarindo 3">
+        <img class="p-card-cover" src="images/tamarindo-4.jpg" alt="Casa Tamarindo 4">
+        <img class="p-card-cover" src="images/tamarindo-5.jpg" alt="Casa Tamarindo 5">
+        <img class="p-card-cover" src="images/tamarindo-6.jpg" alt="Casa Tamarindo 6">
+        <button class="carousel-btn prev" onclick="carouselNav(this,-1)" aria-label="Foto anterior">‹</button>
+        <button class="carousel-btn next" onclick="carouselNav(this,1)" aria-label="Foto siguiente">›</button>
+        <div class="carousel-dots">
+          <button class="dot active" onclick="carouselDot(this)" aria-label="Foto 1"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 2"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 3"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 4"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 5"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 6"></button>
+        </div>
+      </div>
       <div class="p-badge badge-gold">◆ Mayor construcción (198 m²)</div>
       <div class="p-card-head">
         <div class="p-card-id">EB-WC2626</div>
@@ -531,7 +600,24 @@
 
     <!-- CASA MEJORADA -->
     <div class="p-card reveal">
-      <img class="p-card-cover" src="images/casa-mejorada.jpg" alt="Casa Mejorada">
+      <div class="p-card-carousel">
+        <img class="p-card-cover active" src="images/casa-mejorada.jpg" alt="Casa Mejorada 1">
+        <img class="p-card-cover" src="images/mejorada-2.jpg" alt="Casa Mejorada 2">
+        <img class="p-card-cover" src="images/mejorada-3.jpg" alt="Casa Mejorada 3">
+        <img class="p-card-cover" src="images/mejorada-4.jpg" alt="Casa Mejorada 4">
+        <img class="p-card-cover" src="images/mejorada-5.jpg" alt="Casa Mejorada 5">
+        <img class="p-card-cover" src="images/mejorada-6.jpg" alt="Casa Mejorada 6">
+        <button class="carousel-btn prev" onclick="carouselNav(this,-1)" aria-label="Foto anterior">‹</button>
+        <button class="carousel-btn next" onclick="carouselNav(this,1)" aria-label="Foto siguiente">›</button>
+        <div class="carousel-dots">
+          <button class="dot active" onclick="carouselDot(this)" aria-label="Foto 1"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 2"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 3"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 4"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 5"></button>
+          <button class="dot" onclick="carouselDot(this)" aria-label="Foto 6"></button>
+        </div>
+      </div>
       <div class="p-badge badge-top">⬥ Mejor ajuste general</div>
       <div class="p-card-head">
         <div class="p-card-id">EB-TZ2009</div>
@@ -837,6 +923,28 @@
     document.getElementById('mobile-overlay').style.display = 'flex';
   }
   window.addEventListener('DOMContentLoaded', checkMobile);
+
+  function carouselNav(btn, dir) {
+    const container = btn.closest('.p-card-carousel');
+    const imgs = Array.from(container.querySelectorAll('.p-card-cover'));
+    const dots = Array.from(container.querySelectorAll('.dot'));
+    let idx = imgs.findIndex(img => img.classList.contains('active'));
+    imgs[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = (idx + dir + imgs.length) % imgs.length;
+    imgs[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  function carouselDot(dot) {
+    const container = dot.closest('.p-card-carousel');
+    const dots = Array.from(container.querySelectorAll('.dot'));
+    const imgs = Array.from(container.querySelectorAll('.p-card-cover'));
+    const targetIdx = dots.indexOf(dot);
+    imgs.forEach(img => img.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    imgs[targetIdx].classList.add('active');
+    dots[targetIdx].classList.add('active');
+  }
 
   function switchTab(id, btn) {
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
