@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis Comparativo de Casas · TRES65 Inmobiliaria</title>
+<meta property="og:title" content="Análisis Comparativo de Casas · TRES65 Inmobiliaria">
+<meta property="og:description" content="Zona Centro de Mérida · Comparativa de 4 casas en venta">
+<meta property="og:image" content="https://tres65-inmobiliaria.github.io/analisis-maria-casillas/LOGO_INMOBILIARIA_3.png">
+<meta property="og:url" content="https://tres65-inmobiliaria.github.io/analisis-maria-casillas/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #1a5c5a;
+    --teal-mid: #1e7a6e;
+    --teal-bright: #2aaa99;
+    --teal-light: #e0f4f1;
+    --gold: #c9a84c;
+    --gold-light: #f7f0dc;
+    --white: #ffffff;
+    --off-white: #f7f9f8;
+    --dark: #1a2e2d;
+    --gray: #637270;
+    --gray-light: #eaf0ef;
+    --shadow: 0 2px 20px rgba(26,92,90,0.08);
+    --shadow-hover: 0 10px 36px rgba(26,92,90,0.16);
+    --radius: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  .header {
+    background: #fff;
+    border-bottom: 1px solid var(--gray-light);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-logo img { height: 70px; width: auto; display: block; }
+  .header-meta { text-align: right; }
+  .header-meta h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .header-meta .tagline {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+  .header-accent {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--teal-bright);
+    margin: 6px 0 0 auto;
+    border-radius: 2px;
+  }
+
+  .market-banner {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-mid) 100%);
+    padding: 28px 48px;
+  }
+  .market-banner-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+  .market-stat { text-align: center; }
+  .market-stat .val {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .market-stat .lbl {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .market-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); margin: 0 auto; }
+  @media(max-width:700px){ .market-banner-inner{ grid-template-columns:1fr 1fr; } .market-divider{display:none;} }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  .section-head { padding: 44px 0 20px; }
+  .section-head h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    letter-spacing: -0.2px;
+  }
+  .section-head p { font-size: 0.82rem; color: var(--gray); margin-top: 5px; font-weight: 400; }
+
+  .warn-box {
+    background: #fdf3e7;
+    border-left: 3px solid #d98c2b;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+  .warn-box .warn-lbl {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: #a5651a; margin-bottom: 6px;
+  }
+  .warn-box p { font-size: 0.78rem; color: var(--dark); line-height: 1.6; }
+  .warn-box p + p { margin-top: 6px; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; padding-bottom: 8px; }
+  @media(max-width:780px){ .cards-grid{ grid-template-columns:1fr; } }
+
+  .p-card {
+    background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+    border: 1.5px solid transparent; overflow: hidden;
+    transition: transform .25s, box-shadow .25s, border-color .25s; position: relative;
+  }
+  .p-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--teal-bright); }
+
+  .p-card-cover { width: 100%; height: 210px; object-fit: cover; display: block; background: var(--gray-light); }
+
+  .p-badge {
+    position: absolute; top: 12px; right: 12px; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; z-index: 2;
+    max-width: 150px; text-align: center; white-space: normal; line-height: 1.3;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  }
+  .badge-gold { background: var(--gold); color: #fff; }
+  .badge-value { background: var(--teal-light); color: var(--teal-deep); }
+  .badge-top { background: var(--teal-deep); color: #fff; }
+
+  .p-card-head { padding: 22px 22px 14px; border-bottom: 1px solid var(--gray-light); }
+  .p-card-id { font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; color: var(--teal-bright); text-transform: uppercase; margin-bottom: 6px; }
+  .p-card-name { font-family: 'Raleway', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
+  .p-card-name a { color: inherit; text-decoration: none; transition: color .2s; }
+  .p-card-name a:hover { color: var(--teal-bright); text-decoration: underline; text-underline-offset: 3px; }
+  .p-card-zone { font-size: 0.75rem; color: var(--gray); margin-top: 3px; }
+
+  .p-price-row {
+    padding: 14px 22px; background: linear-gradient(to right, var(--teal-light), #fff);
+    display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
+  }
+  .p-price-real { font-family: 'Raleway', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--teal-deep); line-height: 1; }
+  .p-price-cur { font-size: 0.7rem; font-weight: 600; color: var(--teal-mid); }
+  .p-price-m2 { font-size: 0.68rem; color: var(--gray); margin-left: auto; font-weight: 500; white-space: nowrap; }
+
+  .p-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--gray-light); }
+  .p-stat { background: #fff; padding: 10px 14px; }
+  .p-stat-lbl { font-size: 0.6rem; font-weight: 700; color: var(--gray); letter-spacing: 0.8px; text-transform: uppercase; }
+  .p-stat-val { font-size: 0.88rem; font-weight: 600; color: var(--dark); margin-top: 1px; }
+
+  .p-desc { padding: 16px 22px 10px; font-size: 0.78rem; color: var(--gray); line-height: 1.65; }
+
+  .p-tags { padding: 0 22px 16px; display: flex; flex-wrap: wrap; gap: 5px; }
+  .p-tag { font-size: 0.65rem; font-weight: 600; padding: 3px 9px; border-radius: 20px; background: var(--teal-light); color: var(--teal-deep); }
+  .p-tag.warn-tag { background: #fdf3e7; color: #a5651a; }
+
+  .p-scores { padding: 14px 22px 18px; border-top: 1px solid var(--gray-light); }
+  .scores-lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+  .score-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .score-name { font-size: 0.68rem; color: var(--dark); width: 150px; flex-shrink: 0; }
+  .score-bg { flex: 1; height: 5px; background: var(--gray-light); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; background: linear-gradient(to right, var(--teal-mid), var(--teal-bright)); transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+  .score-num { font-size: 0.68rem; font-weight: 700; color: var(--teal-deep); width: 24px; text-align: right; }
+
+  .rent-box {
+    margin: 0 22px 18px; padding: 12px 14px; background: var(--gold-light);
+    border-left: 3px solid var(--gold); border-radius: 6px;
+  }
+  .rent-box .rent-lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8a6b1a; margin-bottom: 4px; }
+  .rent-box .rent-val { font-family: 'Raleway', sans-serif; font-size: 1rem; font-weight: 700; color: var(--dark); }
+  .rent-box .rent-note { font-size: 0.68rem; color: var(--gray); margin-top: 2px; }
+
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-bottom: 8px; }
+  @media(max-width:680px){ .charts-row{grid-template-columns:1fr;} }
+  .chart-box { background: #fff; border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+  .chart-box h4 { font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--teal-deep); margin-bottom: 20px; }
+  .bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 150px; padding-bottom: 2px; }
+  .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+  .bar { width: 100%; border-radius: 6px 6px 0 0; position: relative; animation: barUp .9s ease forwards; }
+  .bar-v { position: absolute; top:-20px; left:50%; transform:translateX(-50%); font-size:0.58rem; font-weight:700; color:var(--teal-deep); white-space:nowrap; }
+  .bar-lbl { font-size:0.62rem; color:var(--gray); text-align:center; font-weight:500; line-height:1.3; }
+  @keyframes barUp { from{transform:scaleY(0);transform-origin:bottom} to{transform:scaleY(1);transform-origin:bottom} }
+
+  .table-scroll-hint {
+    display: none; align-items: center; justify-content: center; margin-bottom: 10px;
+    padding: 9px 16px; background: var(--teal-light); border-radius: 8px; border-left: 3px solid var(--teal-bright);
+  }
+  .table-scroll-hint span { font-size: 0.72rem; font-weight: 600; color: var(--teal-deep); letter-spacing: 0.5px; }
+  @media (max-width: 768px) { .table-scroll-hint { display: flex; } }
+  .table-scroll-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-scroll-container::-webkit-scrollbar { height: 4px; }
+  .table-scroll-container::-webkit-scrollbar-track { background: var(--gray-light); }
+  .table-scroll-container::-webkit-scrollbar-thumb { background: var(--teal-bright); border-radius: 2px; }
+  .sticky-col { position: sticky; left: 0; z-index: 2; background: #fff; white-space: nowrap; }
+  .compare-table thead th.sticky-col { background: var(--teal-deep); z-index: 3; }
+  .compare-table tbody tr:hover td.sticky-col { background: var(--off-white); }
+  @media (max-width: 768px) {
+    .compare-table th, .compare-table td { min-width: 160px; }
+    .sticky-col { min-width: 190px !important; }
+  }
+
+  .table-wrap { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 8px; }
+  .compare-table { width:100%; border-collapse:collapse; }
+  .compare-table thead tr { background: var(--teal-deep); }
+  .compare-table thead th {
+    padding: 14px 18px; text-align: left; color: #fff; font-family: 'Raleway', sans-serif;
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .compare-table thead th:first-child { color:rgba(255,255,255,0.55); font-size:0.62rem; letter-spacing:1px; text-transform:uppercase; font-family:'Montserrat',sans-serif; font-weight:600; }
+  .compare-table tbody tr { border-bottom:1px solid var(--gray-light); transition:background .15s; }
+  .compare-table tbody tr:hover { background:var(--off-white); }
+  .compare-table tbody tr:last-child { border-bottom:none; }
+  .compare-table tbody td { padding:11px 18px; font-size:0.78rem; color:var(--dark); }
+  .compare-table tbody td:first-child { font-weight:600; color:var(--gray); font-size:0.7rem; letter-spacing:0.3px; }
+  .hl { background:var(--gold-light)!important; font-weight:700!important; color:var(--teal-deep)!important; border-radius:4px; padding:3px 7px; }
+  .yes { color:var(--teal-bright); font-weight:700; }
+  .no  { color:#c97070; font-weight:700; }
+  .pend { color:#d98c2b; font-weight:700; }
+
+  .tabs-nav {
+    display: flex; gap: 4px; background: var(--gray-light); padding: 4px; border-radius: 8px;
+    width: fit-content; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 7px 16px; border: none; background: transparent; border-radius: 6px;
+    font-family: 'Montserrat', sans-serif; font-size: 0.73rem; font-weight: 600; color: var(--gray);
+    cursor: pointer; transition: all .2s; letter-spacing: 0.2px;
+  }
+  .tab-btn.active { background:#fff; color:var(--teal-deep); box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .tab-pane { display:none; }
+  .tab-pane.active { display:block; }
+
+  .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:680px){ .analysis-grid{grid-template-columns:1fr;} }
+
+  .a-box { background:#fff; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .a-box h4 {
+    font-family:'Raleway',sans-serif; font-size:0.86rem; font-weight:700; color:var(--teal-deep);
+    margin-bottom:12px; padding-bottom:10px; border-bottom:2px solid var(--teal-light);
+  }
+  .a-box ul { list-style:none; display:flex; flex-direction:column; gap:7px; }
+  .a-box ul li { font-size:0.75rem; color:var(--gray); padding-left:16px; position:relative; line-height:1.5; }
+  .a-box ul li::before { content:'→'; position:absolute; left:0; color:var(--teal-bright); font-weight:700; }
+  .a-box ul li.pro::before { content:''; color:#2aaa99; }
+  .a-box ul li.con::before { content:''; color:#c97070; }
+  .a-box ul li strong { color:var(--dark); }
+
+  .verdicts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media(max-width:780px){ .verdicts-grid{grid-template-columns:1fr;} }
+
+  .v-card { background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); border-top:3px solid var(--teal-bright); }
+  .v-card.v-gold { border-top-color:var(--gold); }
+  .v-card.v-dark { border-top-color:var(--teal-deep); grid-column: 1 / -1; }
+  .v-icon { font-size:1.6rem; margin-bottom:10px; }
+  .v-prop { font-size:0.6rem; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:var(--teal-bright); margin-bottom:5px; }
+  .v-card.v-gold .v-prop { color:var(--gold); }
+  .v-title { font-family:'Raleway',sans-serif; font-size:0.92rem; font-weight:700; color:var(--dark); margin-bottom:8px; }
+  .v-text { font-size:0.75rem; color:var(--gray); line-height:1.6; }
+
+  .footer { background: var(--dark); margin-top: 44px; padding: 36px 48px 24px; }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto; display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  }
+  .footer-brand img { height: 60px; width: auto; display: block; margin-bottom: 12px; opacity: 0.95; }
+  .footer-brand p { font-size: 0.74rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+  .footer-agent { text-align:right; }
+  .agent-name { font-family:'Raleway',sans-serif; font-size:1rem; font-weight:700; color:#fff; letter-spacing:-0.2px; }
+  .agent-role { font-size:0.68rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal-bright); margin-bottom:10px; }
+  .agent-contact { font-size:0.74rem; color:rgba(255,255,255,.5); line-height:1.9; }
+  .agent-contact a { color:rgba(255,255,255,.5); text-decoration:none; }
+  .footer-hr { border:none; border-top:1px solid rgba(255,255,255,.08); margin:22px 0 14px; }
+  .footer-bottom {
+    max-width:1080px; margin:0 auto; font-size:0.66rem; color:rgba(255,255,255,.25);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  }
+
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  #mobile-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(160deg, #0d2420 0%, var(--teal-deep) 100%);
+    flex-direction: column; align-items: center; justify-content: center; padding: 36px 28px; text-align: center;
+  }
+  #mobile-overlay .mo-logo { margin-bottom: 28px; }
+  #mobile-overlay .mo-logo img { height: 60px; width: auto; opacity: 0.98; }
+  #mobile-overlay .mo-icon { font-size: 2.4rem; margin-bottom: 14px; }
+  #mobile-overlay .mo-tag {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--teal-bright); margin-bottom: 14px; border: 1px solid rgba(42,170,153,0.4);
+    padding: 5px 14px; border-radius: 20px; display: inline-block;
+  }
+  #mobile-overlay h2 { font-family: 'Raleway', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 16px; }
+  #mobile-overlay .mo-divider { width: 40px; height: 2px; background: var(--teal-bright); border-radius: 2px; margin: 0 auto 20px; }
+  #mobile-overlay .mo-rules { list-style: none; max-width: 340px; margin: 0 auto 28px; display: flex; flex-direction: column; gap: 9px; }
+  #mobile-overlay .mo-rules li { font-size: 0.76rem; color: rgba(255,255,255,0.65); display: flex; align-items: flex-start; gap: 8px; text-align: left; line-height: 1.5; }
+  #mobile-overlay .mo-rules li::before { content: '—'; color: var(--teal-bright); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  #mobile-overlay .mo-confirm { font-size: 0.72rem; color: rgba(255,255,255,0.4); max-width: 300px; margin: 0 auto 28px; font-style: italic; line-height: 1.6; }
+  .mo-btn {
+    background: var(--teal-bright); color: #fff; border: none; padding: 14px 36px; border-radius: 50px;
+    font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px;
+    cursor: pointer; transition: background .2s, transform .15s; display: inline-block;
+  }
+  .mo-btn:hover { background: #23988a; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<div id="mobile-overlay">
+  <div class="mo-logo">
+    <img src="logoblancotres.png" alt="TRES65 Inmobiliaria"
+         onerror="this.outerHTML='<span style=\'font-family:Raleway,sans-serif;font-size:1.6rem;font-weight:800;color:#2aaa99\'>TRES65</span>'">
+  </div>
+  <div class="mo-icon">⊘</div>
+  <div class="mo-tag">Documento Confidencial</div>
+  <h2>Reporte de Uso Interno</h2>
+  <div class="mo-divider"></div>
+  <ul class="mo-rules">
+    <li>Este reporte contiene información comercial estratégica preparada exclusivamente para el asesor y su cliente.</li>
+    <li>Queda estrictamente prohibido compartir, reenviar o publicar este documento sin autorización escrita.</li>
+    <li>No debe reproducirse ni utilizarse con fines distintos a la asesoría para la que fue elaborado.</li>
+    <li>TRES65 Inmobiliaria se reserva todos los derechos sobre el contenido y análisis aquí presentados.</li>
+  </ul>
+  <p class="mo-confirm">Al continuar confirmas que eres el destinatario autorizado de este análisis.</p>
+  <button class="mo-btn" onclick="closeMobileOverlay()">Acepto y accedo al reporte →</button>
+</div>
+
+<header class="header">
+  <div class="header-logo">
+    <img src="LOGO_INMOBILIARIA_3.png" alt="TRES65 Inmobiliaria"
+         onerror="this.outerHTML='<span style=\'font-family:Raleway,sans-serif;font-size:1.6rem;font-weight:800;color:#1a5c5a\'>TRES<span style=\'color:#2aaa99\'>65</span></span>'">
+  </div>
+  <div class="header-meta">
+    <h1>Análisis Comparativo de Casas en Venta</h1>
+    <span class="header-accent"></span>
+    <p class="tagline">Zona Centro de Mérida · Agosto 2026 · Uso Confidencial</p>
+  </div>
+</header>
+
+<div class="market-banner">
+  <div class="market-banner-inner">
+    <div class="market-stat">
+      <div class="val">$6.5M–$6.8M</div>
+      <div class="lbl">Rango real de precios (vs $6.0M declarado)</div>
+    </div>
+    <div class="market-divider"></div>
+    <div class="market-stat">
+      <div class="val">+8.3% a +13.3%</div>
+      <div class="lbl">Sobre el presupuesto declarado</div>
+    </div>
+    <div class="market-divider"></div>
+    <div class="market-stat">
+      <div class="val">2–3</div>
+      <div class="lbl">Recámaras (2 es lo ideal)</div>
+    </div>
+    <div class="market-divider"></div>
+    <div class="market-stat">
+      <div class="val">100%</div>
+      <div class="lbl">Uso residencial — para vivir</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section-head reveal">
+    <h2>Perfil de la clienta</h2>
+    <p>Maria Casillas · Pareja sin hijos · Objetivo: casa completa para vivir en zona centro, sin compartir edificio ni techo con vecinos</p>
+  </div>
+
+  <div class="warn-box reveal">
+    <div class="warn-lbl">⚠ Ninguna opción toca el presupuesto declarado de $6,000,000 MXN</div>
+    <p>Las 4 propiedades van de $6,500,000 a $6,800,000 MXN — entre <strong>8.3% y 13.3% por encima</strong> de lo declarado por Maria. Esto refleja el precio real de mercado para casas de 2 recámaras en zona centro, no un error de búsqueda. Antes de agendar visitas conviene confirmar con ella si su techo real tiene margen hasta ~$6.8M, o si prefiere ampliar la búsqueda a otras zonas para acercarse más a los $6M.</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- CASA SANTIAGO -->
+    <div class="p-card reveal">
+      <img class="p-card-cover" src="images/casa-santiago.jpg" alt="Casa Santiago">
+      <div class="p-badge badge-gold">◆ Mayor terreno (381 m²)</div>
+      <div class="p-card-head">
+        <div class="p-card-id">EB-WD4928</div>
+        <div class="p-card-name"><a href="https://www.easybroker.com/mx/listing/tres65inmobiliaria/casa-remodelada-en-venta-en-centro-merida-0a9ac96c-d43d-43fd-90df-6a28a3880933" target="_blank" rel="noopener">Casa Santiago</a></div>
+        <div class="p-card-zone">Barrio de Santiago, Centro, Mérida</div>
+      </div>
+      <div class="p-price-row">
+        <span class="p-price-real">$6,500,000</span>
+        <span class="p-price-cur">MXN</span>
+        <span class="p-price-m2">$37.0K/m²</span>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="p-stat-lbl">Recámaras</div><div class="p-stat-val">3</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Baños</div><div class="p-stat-val">3 completos</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Construcción</div><div class="p-stat-val">175.54 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Terreno</div><div class="p-stat-val">381.75 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Estacionamiento</div><div class="p-stat-val">Techado ✓</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Esquema de pago</div><div class="p-stat-val">20% enganche · apartado $50,000</div></div>
+      </div>
+      <div class="p-desc">Casa remodelada de <strong>1 sola planta</strong> en el Barrio de Santiago. Alberca de chukum, pisos de pasta y muros en Tzalam/Chukum. Documentación en regla y <strong>libre de gravamen</strong>. La de mayor terreno del grupo, con espacio de sobra para exteriores.</div>
+      <div class="p-tags">
+        <span class="p-tag">◉ Alberca chukum</span>
+        <span class="p-tag">◈ 1 sola planta</span>
+        <span class="p-tag">◦ Pisos de pasta</span>
+        <span class="p-tag">◈ Estacionamiento techado</span>
+        <span class="p-tag">✦ Libre de gravamen</span>
+      </div>
+      <div class="rent-box">
+        <div class="rent-lbl">§ Diferencia vs presupuesto declarado ($6,000,000 MXN)</div>
+        <div class="rent-val">+$500,000 MXN (+8.3%)</div>
+        <div class="rent-note">Empatada con Mejorada como la más cercana al presupuesto del grupo</div>
+      </div>
+      <div class="p-scores">
+        <div class="scores-lbl">Ajuste al perfil de Maria</div>
+        <div class="score-row"><span class="score-name">Ajuste de recámaras (2 ideal)</span><div class="score-bg"><div class="score-fill" style="width:70%"></div></div><span class="score-num">7.0</span></div>
+        <div class="score-row"><span class="score-name">Ajuste de presupuesto</span><div class="score-bg"><div class="score-fill" style="width:80%"></div></div><span class="score-num">8.0</span></div>
+        <div class="score-row"><span class="score-name">Espacio para recibir</span><div class="score-bg"><div class="score-fill" style="width:85%"></div></div><span class="score-num">8.5</span></div>
+      </div>
+    </div>
+
+    <!-- CASA LA PLANCHA -->
+    <div class="p-card reveal">
+      <img class="p-card-cover" src="images/casa-la-plancha.jpg" alt="Casa La Plancha">
+      <div class="p-badge badge-value">✓ 2 recámaras exactas</div>
+      <div class="p-card-head">
+        <div class="p-card-id">EB-UV0127</div>
+        <div class="p-card-name"><a href="https://www.easybroker.com/mx/listing/tres65inmobiliaria/casa-llave-en-mano-a-una-cuadra-del-corredor-gastronomico-de-merida-centro" target="_blank" rel="noopener">Casa La Plancha</a></div>
+        <div class="p-card-zone">Centro, a 1 cuadra del corredor gastronómico</div>
+      </div>
+      <div class="p-price-row">
+        <span class="p-price-real">$6,790,000</span>
+        <span class="p-price-cur">MXN <span class="pend">+ escrituración e impuestos</span></span>
+        <span class="p-price-m2">$39.8K/m²</span>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="p-stat-lbl">Recámaras</div><div class="p-stat-val">2</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Baños</div><div class="p-stat-val">2 + medio</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Construcción</div><div class="p-stat-val">170.48 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Terreno</div><div class="p-stat-val">164.91 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Estacionamiento</div><div class="p-stat-val">No especificado <span class="pend">*</span></div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Esquema de pago</div><div class="p-stat-val">Créditos bancarios, FOVISSSTE, INFONAVIT/COFINAVIT, ISSFAM/Banjercito, PEMEX</div></div>
+      </div>
+      <div class="p-desc">Construida en <strong>2023 — la más nueva de las cuatro</strong>. 2 plantas: PB con sala/comedor integrados, cocina con isla y granito, terraza techada y alberca de chukum. PA con recámara principal con closet/vestidor, terrazas propias y <strong>roof top con vista al centro histórico</strong>. A una cuadra del corredor gastronómico y del Parque de la Plancha.</div>
+      <div class="p-tags">
+        <span class="p-tag">◉ Alberca chukum</span>
+        <span class="p-tag">✦ Roof top vista centro</span>
+        <span class="p-tag">◈ Cocina con isla y granito</span>
+        <span class="p-tag">◦ A 1 cuadra del corredor gastronómico</span>
+        <span class="p-tag">◈ Construida 2023</span>
+      </div>
+      <div class="rent-box">
+        <div class="rent-lbl">§ Diferencia vs presupuesto declarado ($6,000,000 MXN)</div>
+        <div class="rent-val">+$790,000 MXN (+13.2%)</div>
+        <div class="rent-note">La que más se aleja del presupuesto, antes de sumar escrituración e impuestos</div>
+      </div>
+      <div class="p-scores">
+        <div class="scores-lbl">Ajuste al perfil de Maria</div>
+        <div class="score-row"><span class="score-name">Ajuste de recámaras (2 ideal)</span><div class="score-bg"><div class="score-fill" style="width:100%"></div></div><span class="score-num">10.0</span></div>
+        <div class="score-row"><span class="score-name">Ajuste de presupuesto</span><div class="score-bg"><div class="score-fill" style="width:65%"></div></div><span class="score-num">6.5</span></div>
+        <div class="score-row"><span class="score-name">Espacio para recibir</span><div class="score-bg"><div class="score-fill" style="width:90%"></div></div><span class="score-num">9.0</span></div>
+      </div>
+    </div>
+
+    <!-- CASA TAMARINDO -->
+    <div class="p-card reveal">
+      <img class="p-card-cover" src="images/casa-tamarindo.jpg" alt="Casa Tamarindo">
+      <div class="p-badge badge-gold">◆ Mayor construcción (198 m²)</div>
+      <div class="p-card-head">
+        <div class="p-card-id">EB-WC2626</div>
+        <div class="p-card-name"><a href="https://www.easybroker.com/mx/listing/tres65inmobiliaria/casa-tamarindo-el-oasis-de-tus-suenos-en-el-corazon-de-merida" target="_blank" rel="noopener">Casa Tamarindo</a></div>
+        <div class="p-card-zone">Centro, a ~800m de Plaza Grande</div>
+      </div>
+      <div class="p-price-row">
+        <span class="p-price-real">$6,800,000</span>
+        <span class="p-price-cur">MXN <span class="pend">+ impuestos y escrituración</span></span>
+        <span class="p-price-m2">$34.3K/m²</span>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="p-stat-lbl">Recámaras</div><div class="p-stat-val">3</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Baños</div><div class="p-stat-val">3 + medio</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Construcción</div><div class="p-stat-val">198 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Terreno</div><div class="p-stat-val">260.73 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Estacionamiento</div><div class="p-stat-val"><span class="no">0 — sin estacionamiento</span></div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Esquema de pago</div><div class="p-stat-val">20% enganche · apartado $50,000 · recurso propio</div></div>
+      </div>
+      <div class="p-desc">La de <strong>mayor construcción interior</strong> del grupo. PB con sala a doble altura, comedor formal, cocina equipada, medio baño, terraza techada, alberca y una recámara con baño completo y acceso a terraza. PA con 2 recámaras con baño privado y terraza exclusiva cada una. A 4 min / ~800m de Plaza Grande y Parque de Santiago. Publicada hace 1 día. <strong>No tiene un solo cajón de estacionamiento</strong> — el principal punto a resolver con Maria antes de presentarla con entusiasmo.</div>
+      <div class="p-tags">
+        <span class="p-tag">◉ Alberca</span>
+        <span class="p-tag">✦ Sala a doble altura</span>
+        <span class="p-tag">◈ 3 terrazas privadas</span>
+        <span class="p-tag">◦ A 4 min de Plaza Grande</span>
+        <span class="p-tag warn-tag">⚠ Sin estacionamiento</span>
+      </div>
+      <div class="rent-box">
+        <div class="rent-lbl">§ Diferencia vs presupuesto declarado ($6,000,000 MXN)</div>
+        <div class="rent-val">+$800,000 MXN (+13.3%)</div>
+        <div class="rent-note">La más alejada del presupuesto, antes de sumar impuestos y escrituración</div>
+      </div>
+      <div class="p-scores">
+        <div class="scores-lbl">Ajuste al perfil de Maria</div>
+        <div class="score-row"><span class="score-name">Ajuste de recámaras (2 ideal)</span><div class="score-bg"><div class="score-fill" style="width:70%"></div></div><span class="score-num">7.0</span></div>
+        <div class="score-row"><span class="score-name">Ajuste de presupuesto</span><div class="score-bg"><div class="score-fill" style="width:65%"></div></div><span class="score-num">6.5</span></div>
+        <div class="score-row"><span class="score-name">Espacio para recibir</span><div class="score-bg"><div class="score-fill" style="width:80%"></div></div><span class="score-num">8.0</span></div>
+      </div>
+    </div>
+
+    <!-- CASA MEJORADA -->
+    <div class="p-card reveal">
+      <img class="p-card-cover" src="images/casa-mejorada.jpg" alt="Casa Mejorada">
+      <div class="p-badge badge-top">⬥ Mejor ajuste general</div>
+      <div class="p-card-head">
+        <div class="p-card-id">EB-TZ2009</div>
+        <div class="p-card-name"><a href="https://www.easybroker.com/mx/listing/tres65inmobiliaria/renta-totalmente-equipada-en-merida-centro-zona-mejorada" target="_blank" rel="noopener">Casa Mejorada</a></div>
+        <div class="p-card-zone">Zona Mejorada, Centro, Mérida</div>
+      </div>
+      <div class="p-price-row">
+        <span class="p-price-real">$6,500,000</span>
+        <span class="p-price-cur">MXN de venta <span class="pend">(ficha dual venta/renta)</span></span>
+        <span class="p-price-m2">$38.2K/m²</span>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="p-stat-lbl">Recámaras</div><div class="p-stat-val">2 amplias</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Baños</div><div class="p-stat-val">2 + medio</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Construcción</div><div class="p-stat-val">170 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Terreno</div><div class="p-stat-val">240 m²</div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Estacionamiento</div><div class="p-stat-val">No especificado <span class="pend">*</span></div></div>
+        <div class="p-stat"><div class="p-stat-lbl">Amueblada</div><div class="p-stat-val">Sí — lista para mudarse</div></div>
+      </div>
+      <div class="p-desc"><strong>Totalmente amueblada</strong>, con cocina equipada, alberca privada rodeada de vegetación, terraza techada y paneles solares. La ficha original es dual venta/renta ($30,000 MXN/mes de renta) — este reporte usa <strong>únicamente el dato de venta</strong>. Junto con Santiago, la más cercana al presupuesto declarado.</div>
+      <div class="p-tags">
+        <span class="p-tag">◉ Alberca privada</span>
+        <span class="p-tag">✦ Amueblada</span>
+        <span class="p-tag">◈ Paneles solares</span>
+        <span class="p-tag">◦ Cocina equipada</span>
+        <span class="p-tag">◈ Zona Mejorada</span>
+      </div>
+      <div class="rent-box">
+        <div class="rent-lbl">§ Diferencia vs presupuesto declarado ($6,000,000 MXN)</div>
+        <div class="rent-val">+$500,000 MXN (+8.3%)</div>
+        <div class="rent-note">Empatada con Santiago como la más cercana al presupuesto — y la única amueblada</div>
+      </div>
+      <div class="p-scores">
+        <div class="scores-lbl">Ajuste al perfil de Maria</div>
+        <div class="score-row"><span class="score-name">Ajuste de recámaras (2 ideal)</span><div class="score-bg"><div class="score-fill" style="width:100%"></div></div><span class="score-num">10.0</span></div>
+        <div class="score-row"><span class="score-name">Ajuste de presupuesto</span><div class="score-bg"><div class="score-fill" style="width:80%"></div></div><span class="score-num">8.0</span></div>
+        <div class="score-row"><span class="score-name">Espacio para recibir</span><div class="score-bg"><div class="score-fill" style="width:75%"></div></div><span class="score-num">7.5</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-head reveal">
+    <h2>Comparativa de números clave</h2>
+    <p>Precio vs presupuesto declarado · precio por m² construido</p>
+  </div>
+  <div class="charts-row reveal">
+    <div class="chart-box">
+      <h4>Precio de venta vs presupuesto declarado (MXN)</h4>
+      <div class="bar-chart">
+        <div class="bar-group">
+          <div class="bar" style="height:88%;background:linear-gradient(to top,#8a6b1a,#c9a84c);position:relative;">
+            <span class="bar-v">$6.0M*</span>
+          </div>
+          <span class="bar-lbl">Presupuesto<br>declarado</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:96%;background:linear-gradient(to top,#1a5c5a,#2aaa99);position:relative;">
+            <span class="bar-v">$6.50M</span>
+          </div>
+          <span class="bar-lbl">Santiago</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:100%;background:linear-gradient(to top,#1e7a6e,#5cc4b8);position:relative;">
+            <span class="bar-v">$6.79M</span>
+          </div>
+          <span class="bar-lbl">La Plancha</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:100%;background:linear-gradient(to top,#1e7a6e,#5cc4b8);position:relative;">
+            <span class="bar-v">$6.80M</span>
+          </div>
+          <span class="bar-lbl">Tamarindo</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:96%;background:linear-gradient(to top,#1a5c5a,#2aaa99);position:relative;">
+            <span class="bar-v">$6.50M</span>
+          </div>
+          <span class="bar-lbl">Mejorada</span>
+        </div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <h4>Precio por m² construido (MXN)</h4>
+      <div class="bar-chart">
+        <div class="bar-group">
+          <div class="bar" style="height:93%;background:linear-gradient(to top,#1a5c5a,#2aaa99);position:relative;">
+            <span class="bar-v">$37,033</span>
+          </div>
+          <span class="bar-lbl">Santiago</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:100%;background:linear-gradient(to top,#c9a84c,#f0d080);position:relative;">
+            <span class="bar-v">$39,829</span>
+          </div>
+          <span class="bar-lbl">La Plancha</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:86%;background:linear-gradient(to top,#1e7a6e,#5cc4b8);position:relative;">
+            <span class="bar-v">$34,343</span>
+          </div>
+          <span class="bar-lbl">Tamarindo</span>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:96%;background:linear-gradient(to top,#1a5c5a,#2aaa99);position:relative;">
+            <span class="bar-v">$38,235</span>
+          </div>
+          <span class="bar-lbl">Mejorada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.68rem;color:var(--gray);margin-top:8px;">* $6,000,000 MXN es el presupuesto declarado por Maria — se incluye como referencia, ninguna de las 4 propiedades lo toca.</p>
+
+  <div class="section-head reveal">
+    <h2>Tabla comparativa completa</h2>
+    <p>Todos los factores decisivos sin filtros</p>
+  </div>
+
+  <div class="table-scroll-hint" id="tableHint">
+    <span>‹ desliza para ver las cuatro propiedades ›</span>
+  </div>
+
+  <div class="table-wrap reveal">
+    <div class="table-scroll-container">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="sticky-col">Criterio</th>
+          <th>Santiago</th>
+          <th>La Plancha</th>
+          <th>Tamarindo</th>
+          <th>Mejorada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sticky-col">Zona</td><td>Barrio de Santiago, Centro</td><td>Centro, corredor gastronómico</td><td>Centro, cerca Plaza Grande</td><td>Zona Mejorada, Centro</td></tr>
+        <tr><td class="sticky-col">Precio</td><td>$6,500,000 MXN</td><td>$6,790,000 MXN</td><td>$6,800,000 MXN</td><td>$6,500,000 MXN (venta)</td></tr>
+        <tr><td class="sticky-col">Precio/m² construido</td><td>$37,033 MXN</td><td>$39,829 MXN</td><td><span class="hl">$34,343 MXN</span></td><td>$38,235 MXN</td></tr>
+        <tr><td class="sticky-col">Construcción</td><td>175.54 m²</td><td>170.48 m²</td><td><span class="hl">198 m²</span></td><td>170 m²</td></tr>
+        <tr><td class="sticky-col">Terreno</td><td><span class="hl">381.75 m²</span></td><td>164.91 m²</td><td>260.73 m²</td><td>240 m²</td></tr>
+        <tr><td class="sticky-col">Recámaras / Baños</td><td>3 / 3</td><td><span class="hl">2 / 2 + medio</span></td><td>3 / 3 + medio</td><td><span class="hl">2 / 2 + medio</span></td></tr>
+        <tr><td class="sticky-col">Estacionamiento</td><td>Techado (cantidad no especificada)</td><td>No especificado en la ficha</td><td><span class="no">0 — sin estacionamiento</span></td><td>No especificado en la ficha</td></tr>
+        <tr><td class="sticky-col">Plantas</td><td>1 planta</td><td>2 plantas</td><td>2 plantas (PB + PA)</td><td>No especificado</td></tr>
+        <tr><td class="sticky-col">Amueblada</td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="yes">✓ Sí</span></td></tr>
+        <tr><td class="sticky-col">Diferencia vs $6,000,000 declarado</td><td><span class="pend">+$500,000 (+8.3%)</span></td><td><span class="pend">+$790,000 (+13.2%)</span></td><td><span class="pend">+$800,000 (+13.3%)</span></td><td><span class="pend">+$500,000 (+8.3%)</span></td></tr>
+        <tr><td class="sticky-col">Costos adicionales</td><td>No especificado</td><td>Escrituración e impuestos aparte</td><td>Impuestos y escrituración aparte</td><td>No especificado</td></tr>
+        <tr><td class="sticky-col">Antigüedad / Estado</td><td>Remodelada (según ficha)</td><td><span class="hl">Construida 2023 — la más nueva</span></td><td>Publicada hace 1 día — confirmar antigüedad</td><td>No especificado</td></tr>
+        <tr><td class="sticky-col">Cercanía puntos de interés</td><td>Barrio de Santiago (sin distancia dada)</td><td>1 cuadra del corredor gastronómico y Parque de la Plancha</td><td>~800m / 4 min de Plaza Grande y Parque de Santiago</td><td>Zona Mejorada (sin distancia dada)</td></tr>
+        <tr><td class="sticky-col">Esquema de pago</td><td>20% enganche · apartado $50,000</td><td>Créditos bancarios, FOVISSSTE, INFONAVIT/COFINAVIT, ISSFAM/Banjercito, PEMEX</td><td>20% enganche · apartado $50,000 · recurso propio</td><td>No especificado</td></tr>
+        <tr><td class="sticky-col">Documentación</td><td><span class="hl">En regla, libre de gravamen</span></td><td>No especificado</td><td>No especificado</td><td>No especificado</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="section-head reveal">
+    <h2>Análisis por prioridad de Maria</h2>
+    <p>Lo que cambia según qué esté priorizando ella</p>
+  </div>
+  <div class="reveal">
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('rend',this)">↑ Ajuste al presupuesto</button>
+      <button class="tab-btn" onclick="switchTab('inq',this)">◈ Distribución y vida social</button>
+      <button class="tab-btn" onclick="switchTab('riesgo',this)">⚠ Riesgo y pendientes</button>
+    </div>
+
+    <div class="tab-pane active" id="tab-rend">
+      <div class="analysis-grid">
+        <div class="a-box">
+          <h4>› Las que más se acercan al presupuesto</h4>
+          <ul>
+            <li><strong>Santiago y Mejorada</strong> empatan como las más accesibles del grupo: $6,500,000 MXN cada una, +8.3% sobre lo declarado</li>
+            <li>Santiago compensa con el terreno más grande (381.75 m²); Mejorada compensa viniendo amueblada y con 2 recámaras exactas</li>
+            <li>Ninguna de las dos toca los $6,000,000 declarados — solo son las que menos se alejan</li>
+          </ul>
+        </div>
+        <div class="a-box">
+          <h4>— Las que más se alejan del presupuesto</h4>
+          <ul>
+            <li><strong>La Plancha (+13.2%) y Tamarindo (+13.3%)</strong> son las más caras, y ambas suman escrituración e impuestos aparte del precio listado</li>
+            <li>La Plancha compensa con ser la única a estrenar (2023) y con roof top con vista al centro histórico</li>
+            <li>Tamarindo compensa con la mayor construcción interior (198 m²), pero arrastra la objeción del estacionamiento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-inq">
+      <div class="analysis-grid">
+        <div class="a-box">
+          <h4>› Espacios para recibir invitados</h4>
+          <ul>
+            <li><strong>La Plancha:</strong> roof top con vista al centro histórico y terraza techada — el espacio social más distintivo del grupo</li>
+            <li><strong>Tamarindo:</strong> sala a doble altura y tres terrazas privadas, aunque llegar en coche implica estacionarse en la calle</li>
+            <li><strong>Santiago:</strong> alberca y el terreno más amplio, todo en una sola planta — cómodo para reuniones sin escaleras</li>
+            <li><strong>Mejorada:</strong> más compacta, pero amueblada y lista para usarse de inmediato, con alberca privada rodeada de vegetación</li>
+          </ul>
+        </div>
+        <div class="a-box">
+          <h4>— Recámaras: 2 ideal vs 3 real</h4>
+          <ul>
+            <li><strong>La Plancha y Mejorada</strong> calzan exacto en las 2 recámaras que pidió Maria</li>
+            <li><strong>Santiago y Tamarindo</strong> traen una recámara de más — no las descalifica, pero no es lo pedido; esa tercera recámara puede funcionar como oficina o cuarto de huéspedes</li>
+            <li>Para una pareja sin hijos, la recámara extra es flexibilidad, no necesidad — vale la pena preguntarle a Maria si le suma valor o le es indiferente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-riesgo">
+      <div class="analysis-grid">
+        <div class="a-box">
+          <h4>› Antes de agendar visitas</h4>
+          <ul>
+            <li class="con"><strong>Tamarindo no tiene un solo cajón de estacionamiento</strong> — es una objeción real, no un dato menor. Resolver con Maria si es descalificador o si hay alternativas (cajón de renta cercano, por ejemplo) antes de presentarla con entusiasmo</li>
+            <li class="con">La Plancha y Mejorada no especifican estacionamiento en su ficha — preguntar directamente antes de la visita</li>
+            <li class="con">La ficha de Mejorada es dual venta/renta ($6,500,000 de venta / $30,000 MXN al mes de renta) — confirmar con el equipo que se está negociando sobre el precio de venta y no generar confusión con la renta</li>
+            <li>Tamarindo fue publicada hace apenas 1 día — vale la pena confirmar con el desarrollador el estado real de construcción antes de prometer fecha de entrega</li>
+          </ul>
+        </div>
+        <div class="a-box">
+          <h4>— Contexto de presupuesto</h4>
+          <ul>
+            <li>Ninguna de las 4 opciones toca los $6,000,000 MXN declarados — van de $6,500,000 a $6,800,000, es decir +8.3% a +13.3%</li>
+            <li>Esto refleja el precio real de mercado para casas de 2+ recámaras en zona centro, no una falla en la búsqueda</li>
+            <li>Recomendamos confirmar con Maria si su techo real tiene margen hasta ~$6.8M, o si prefiere que ampliemos la búsqueda a otras zonas para acercarnos más a los $6M declarados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head reveal">
+    <h2>Veredictos finales</h2>
+    <p>Sin ambigüedad — y sin esconder lo que sigue sin resolverse</p>
+  </div>
+  <div class="verdicts-grid">
+    <div class="v-card reveal">
+      <div class="v-icon">◆</div>
+      <div class="v-prop">Casa Santiago · EB-WD4928</div>
+      <div class="v-title">Mayor terreno del grupo, pero con una recámara de más</div>
+      <p class="v-text">La casa más grande en terreno (381.75 m²), en una sola planta, con documentación ya en regla y libre de gravamen. Empata con Mejorada como la más cercana al presupuesto (+8.3%). Su tercera recámara puede funcionar como oficina o cuarto de huéspedes si el número exacto no es determinante para Maria.</p>
+    </div>
+    <div class="v-card reveal">
+      <div class="v-icon">▲</div>
+      <div class="v-prop">Casa La Plancha · EB-UV0127</div>
+      <div class="v-title">La única a estrenar, pero la que más se aleja del presupuesto</div>
+      <p class="v-text">Calza exacto en 2 recámaras, con el mejor espacio social del grupo (roof top con vista al centro histórico, a una cuadra del corredor gastronómico) y construida en 2023. A cambio, es la más cara de las cuatro (+13.2%, más escrituración e impuestos) y no especifica estacionamiento en su ficha.</p>
+    </div>
+    <div class="v-card reveal">
+      <div class="v-icon">⬥</div>
+      <div class="v-prop">Casa Tamarindo · EB-WC2626</div>
+      <div class="v-title">El interior más amplio, pero sin un solo cajón de estacionamiento</div>
+      <p class="v-text">198 m² de construcción, sala a doble altura y tres terrazas privadas — atractiva para recibir invitados. Pero el 0 en estacionamiento es una objeción real que hay que resolver con Maria antes de presentarla con entusiasmo, sobre todo si ella o sus invitados llegan en coche.</p>
+    </div>
+    <div class="v-card v-gold reveal">
+      <div class="v-icon">⊙</div>
+      <div class="v-prop">Casa Mejorada · EB-TZ2009</div>
+      <div class="v-title">El ajuste más cercano al perfil de Maria</div>
+      <p class="v-text">2 recámaras exactas, precio empatado como el más bajo del grupo ($6,500,000, +8.3%) y la única que se entrega amueblada y lista para mudarse. Le falta detalle en la ficha sobre estacionamiento y número de plantas — vale la pena preguntar directamente antes de agendar visita.</p>
+    </div>
+    <div class="v-card v-dark reveal">
+      <div class="v-icon">⊙</div>
+      <div class="v-prop">Para Maria</div>
+      <div class="v-title">Ninguna toca exactamente tu presupuesto — pero cada una te dice en qué se te iría ese excedente</div>
+      <p class="v-text">Las 4 casas están entre 8.3% y 13.3% por encima de los $6,000,000 que tenías en mente. Es el precio real que está pidiendo hoy el mercado de zona centro para una casa completa de 2+ recámaras, no un problema de la búsqueda — y en varios casos ese precio de lista todavía tiene margen para negociar, sobre todo en las dos más caras del grupo. Si decides estirarte un poco, esto es lo que compra cada excedente: en <strong>Mejorada</strong>, $500,000 extra te dan justo tus 2 recámaras, amueblada y lista para mudarte sin gastar en muebles ni esperar remodelación — probablemente la manera más rápida de estar viviendo ahí. En <strong>Santiago</strong>, el mismo excedente de $500,000 te compra el terreno más grande de las cuatro y papeles ya en regla, con una recámara extra que puede quedarte como oficina o cuarto de visitas. En <strong>La Plancha</strong>, $790,000 extra te dan una casa a estrenar (2023) con roof top propio con vista al centro — si te imaginas recibiendo ahí, es la que más se siente para eso, aunque es la más cara y conviene preguntar por margen de negociación antes de enamorarte de ella. <strong>Tamarindo</strong> te da el interior más grande de las cuatro por $800,000 extra, pero antes de que te ilusiones hay que resolver algo puntual: no tiene un solo cajón de estacionamiento, así que vale la pena que platiquemos juntas si eso es algo que se puede resolver (cajón en renta cerca, por ejemplo) o si de plano es un alto para ti. Mi sugerencia: visitemos primero Mejorada y La Plancha —las dos que calzan en recámaras— para que compares en persona el "lista para vivir" contra el "espacio para recibir", y de ahí decidimos si vale la pena ver también Santiago o resolver lo de Tamarindo antes de agendarla.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logoblancotres.png" alt="TRES65 Inmobiliaria"
+           onerror="this.outerHTML='<span style=\'font-family:Raleway,sans-serif;font-size:1.2rem;font-weight:800;color:#2aaa99\'>TRES65</span>'">
+      <p>Especialistas en propiedades de<br>Mérida, Yucatán.<br>www.tres65inmobiliaria.com</p>
+    </div>
+    <div class="footer-agent">
+      <div class="agent-name">Guillermo Martínez Espinosa</div>
+      <div class="agent-role">Agente Inmobiliario · TRES65 Inmobiliaria</div>
+      <div class="agent-contact">
+        +52 999 241 3657<br>
+        <a href="mailto:gmartinez@tres65inmobiliaria.com">gmartinez@tres65inmobiliaria.com</a>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-hr">
+  <div class="footer-bottom">
+    <span>© 2026 TRES65 Inmobiliaria® · Marca registrada · Todos los derechos reservados</span>
+    <span>Análisis confidencial · Datos verificados en EasyBroker · No incluye impuestos ni gastos notariales salvo donde se indica</span>
+  </div>
+</footer>
+
+<script>
+  function closeMobileOverlay() {
+    document.getElementById('mobile-overlay').style.display = 'none';
+    sessionStorage.setItem('mo_dismissed', '1');
+  }
+  function checkMobile() {
+    if (sessionStorage.getItem('mo_dismissed')) return;
+    document.getElementById('mobile-overlay').style.display = 'flex';
+  }
+  window.addEventListener('DOMContentLoaded', checkMobile);
+
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const io2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.score-fill').forEach(b => {
+          const w = b.style.width; b.style.width = '0';
+          setTimeout(() => { b.style.width = w; }, 300);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.p-card').forEach(c => io2.observe(c));
+</script>
+</body>
+</html>
